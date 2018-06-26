@@ -18,8 +18,11 @@ export class GridComponent implements OnInit {
   tableData:grid[] = [];
   totalGridData:grid[] = [];
   totalGridDataVal:grid[] = [];
-  infiniteScrollLenInitial:number=8;
-  eachInfiniteScroll:number=2;
+  arrowUp:boolean = false;
+  arrowDown:boolean = false;
+  initalColor:boolean=true;
+  name="first"
+  // header
   constructor(private filterService:FilterService) { }
 
 
@@ -29,17 +32,8 @@ export class GridComponent implements OnInit {
   @Input('disablePagination') disableFlag:boolean;
   ngOnInit() {
 
-    if(!this.disableFlag)
-    {
-      this.calculateTotalPages();
-      this.totalGridDataVal = this.totalData;
-    }
-      
-    else
-      {
-        this.tableData = this.totalGridData.slice(0,this.infiniteScrollLenInitial);
-        
-      }
+    this.calculateTotalPages();
+      this.totalGridDataVal = this.totalData; 
       this.calculateData();
     // this.headers = ["first","last","age"];   
     console.log("this.headers",this.headerData);
@@ -84,7 +78,9 @@ export class GridComponent implements OnInit {
   // sorting
   sort(direction,prop:string){
     this.totalGridDataVal = this.filterService.sortData(this.totalGridDataVal,direction,prop);
-     
+     this.arrowUp = direction == -1 ? true : false;
+     this.arrowDown = direction == 1 ? true : false;
+     this.initalColor=false;
   }
   
  
@@ -113,6 +109,9 @@ export class GridComponent implements OnInit {
     console.log(pageNo);
     if(pageNo === this.currentPage)
       return;
+    this.searchText = "";
+    this.arrowUp = false;
+    this.arrowDown = false;
     this.currentPage = pageNo;    
     this.previousDisabled = this.currentPage > 1 ? false:true;
     this.nextDisabled = this.currentPage < this.pagesLength ? false:true;

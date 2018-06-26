@@ -11,8 +11,8 @@
         <tr>
           <th scope="col">SNO</th>
           <th scope="col" *ngFor= "let headername of headerData;">{{headername}}
-            <fa name="arrow-up" (click)="sort(-1,headername)"></fa>
-            <fa name="arrow-down" (click)="sort(1,headername)"></fa>
+            <fa name="arrow-up" [ngClass]="{'colorBlack':arrowUp,'colorWhite':!arrowUp}" (click)="sort(-1,headername)"></fa>
+            <fa name="arrow-down" [ngClass]="{'colorBlack':arrowDown,'colorWhite':!arrowDown}"  (click)="sort(1,headername)"></fa>
           </th>
           
         </tr>
@@ -20,11 +20,13 @@
       <tbody>
         <tr *ngFor="let page of totalGridDataVal;let i  = index;">
           <th scope="row">{{i+1}}</th>
-          <td>{{page.first}}</td>
+          <td>{{page[name]}}</td>
           <td>{{page.last}}</td>
           <td>{{page.age}}</td>
         </tr>    
-        <tr *ngIf="totalGridDataVal.length == 0">No Records Found</tr>      
+        <tr *ngIf="totalGridDataVal.length == 0">
+        <td colspan="4"><p style="text-align: center;">No Records Found</p></td>           
+        </tr>      
       </tbody>
 
     </table>
