@@ -1,9 +1,19 @@
-.colorBlack{
-    color:black;
+.arrowColor{
+    color:#fff;
     cursor: pointer;
 }
 
-.colorWhite{
-    color:#fff;
-    cursor: pointer;
+
+
+.contStl{
+    border: 2px solid lightgrey;
+}
+
+.searchStyle{
+    margin-bottom:3px;
+    padding: 7px; 
+}
+
+li.disabled{
+    cursor: not-allowed;
 }

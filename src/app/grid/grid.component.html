@@ -1,31 +1,33 @@
-<div class = "container">
+<div class = "container contStl">
   <!-- <table class="table table-bordered" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScrollDown()" (scrolledUp)="onScrollUp"> -->
     <table class="table table-bordered">
       <thead class="thead-light">
         <tr>
-          <div>
+          <div class="searchStyle">
               <input type="text pull-right"  placeholder="Search" [(ngModel)]="searchText" (keyup) ="filter(searchText)" class="form-control"/>
           </div>          
           
         </tr>
         <tr>
-          <th scope="col">SNO</th>
-          <th scope="col" *ngFor= "let headername of headerData;">{{headername}}
-            <fa name="arrow-up" [ngClass]="{'colorBlack':arrowUp,'colorWhite':!arrowUp}" (click)="sort(-1,headername)"></fa>
-            <fa name="arrow-down" [ngClass]="{'colorBlack':arrowDown,'colorWhite':!arrowDown}"  (click)="sort(1,headername)"></fa>
+          <th scope="col"><span >SNO</span></th>
+          <th scope="col" *ngFor= "let headername of headerData;">
+              <span>
+                {{headername}}
+              </span>
+            <fa name="arrow-up arrowColor" (click)="sort(-1,headername)"></fa>
+            <fa name="arrow-down arrowColor" (click)="sort(1,headername)"></fa>
           </th>
           
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let page of totalGridDataVal;let i  = index;">
+        <tr  *ngFor="let pageRow of totalGridDataVal;let i  = index;">
           <th scope="row">{{i+1}}</th>
-          <td>{{page[name]}}</td>
-          <td>{{page.last}}</td>
-          <td>{{page.age}}</td>
+          <td *ngFor="let pageColumn of headerData">{{pageRow[pageColumn]}}</td>
+          
         </tr>    
-        <tr *ngIf="totalGridDataVal.length == 0">
-        <td colspan="4"><p style="text-align: center;">No Records Found</p></td>           
+        <tr  *ngIf="totalGridDataVal.length == 0">
+        <td colspan="headerDataLen"><p style="text-align: center;">No Records Found</p></td>           
         </tr>      
       </tbody>
 

@@ -21,19 +21,23 @@ export class GridComponent implements OnInit {
   arrowUp:boolean = false;
   arrowDown:boolean = false;
   initalColor:boolean=true;
+  headerData:string[] = [];
+  headerDataLen:number;
   name="first"
   // header
   constructor(private filterService:FilterService) { }
 
-
+  
   @Input('totalData') totalData:grid[] = [];
   @Input('itemsPerPage') itemsEachPage:number;
-  @Input('headers') headerData:string[];
-  @Input('disablePagination') disableFlag:boolean;
+  // @Input('headers') headerData:string[];
+  @Input('disablePagination') disableFlag:boolean = false;
   ngOnInit() {
 
     this.calculateTotalPages();
-      this.totalGridDataVal = this.totalData; 
+      this.totalGridDataVal = this.totalData;
+      this.headerData = Object.keys({... this.totalData[0]}); 
+      this.headerDataLen = Object.keys({... this.totalData[0]}).length;
       this.calculateData();
     // this.headers = ["first","last","age"];   
     console.log("this.headers",this.headerData);

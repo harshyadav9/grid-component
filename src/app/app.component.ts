@@ -10,7 +10,7 @@ import { grid } from './grid/grid-model';
 export class AppComponent {
   title = 'app';
   totalGridData:grid[];
-  itemsPerPage:number = 5;
+  itemsPerPage:number = 7;
   constructor(private dataService:FilterService){
 
   }

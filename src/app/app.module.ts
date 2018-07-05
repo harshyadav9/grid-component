@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {FormsModule }   from '@angular/forms';
 import { GridComponent } from './grid/grid.component';
+import { styleDirective } from './grid/style.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GridComponent
+    GridComponent,
+    styleDirective
   ],
   imports: [
     BrowserModule,
