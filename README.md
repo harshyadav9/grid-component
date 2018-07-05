@@ -12,7 +12,7 @@ Usage:
 
 @Component({
   template: `
-    <app-grid *ngIf="totalGridData" [disablePagination]="disableFlag" [itemsPerPage]="itemsPerPage" [totalData]="totalGridData" [disablePagination]="false" ></app-grid>
+    <app-grid *ngIf="totalGridData" [disablePagination]="disableFlag" [itemsPerPage]="itemsPerPage" [totalData]="totalGridData"  ></app-grid>
   `
 })
 // ...
