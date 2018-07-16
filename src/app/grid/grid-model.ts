@@ -1,4 +1,4 @@
-export interface grid{
+export class  grid{
     first:string;
     last:string;
     age:number;

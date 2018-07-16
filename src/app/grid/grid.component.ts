@@ -23,8 +23,6 @@ export class GridComponent implements OnInit {
   initalColor:boolean=true;
   headerData:string[] = [];
   headerDataLen:number;
-  name="first"
-  // header
   constructor(private filterService:FilterService) { }
 
   
@@ -37,10 +35,11 @@ export class GridComponent implements OnInit {
     this.calculateTotalPages();
       this.totalGridDataVal = this.totalData;
       this.headerData = Object.keys({... this.totalData[0]}); 
-      this.headerDataLen = Object.keys({... this.totalData[0]}).length;
+      this.headerDataLen = Object.keys({... this.totalData[0]}).length + 1;
+      // console.log("headerDataLen",this.headerDataLen);
       this.calculateData();
     // this.headers = ["first","last","age"];   
-    console.log("this.headers",this.headerData);
+    // console.log("this.headers",this.headerData);
   }
 
 
@@ -60,7 +59,7 @@ export class GridComponent implements OnInit {
     filter(){
       this.totalGridDataVal = this.filterService.filterData(this.tableData,this.searchText,this.headerData);
       
-      console.log("this.tableData",this.tableData);
+      // console.log("this.tableData",this.tableData);
     }
     
   
@@ -110,7 +109,7 @@ export class GridComponent implements OnInit {
   
 
   changePage(pageNo:number){
-    console.log(pageNo);
+    // console.log(pageNo);
     if(pageNo === this.currentPage)
       return;
     this.searchText = "";

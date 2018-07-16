@@ -27,7 +27,7 @@
           
         </tr>    
         <tr  *ngIf="totalGridDataVal.length == 0">
-        <td colspan="headerDataLen"><p style="text-align: center;">No Records Found</p></td>           
+        <td [colSpan] ="headerDataLen"><p style="text-align: center;">No Records Found</p></td>           
         </tr>      
       </tbody>
 
