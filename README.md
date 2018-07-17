@@ -1,4 +1,4 @@
-## This is a grid component  in Angular 6 and Bootrap 4  that includes the following features:
+## This is a grid component  in Angular 6 and Bootstrap 4  that includes the following features:
 
   ```
   Dynamic search functionality across all columns headers(page wise).
@@ -54,7 +54,7 @@
     styleDirective:It is a property that can be added as an attribute that can be applied to rows and headers to give them color.  
     Usage:
        <tr  styleDirective ="grey" *ngFor="let pageRow of totalGridDataVal;let i  = index;">(Example)
-       
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
