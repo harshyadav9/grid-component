@@ -1,8 +1,10 @@
 ## This is a grid component  in Angular 6 and Bootrap 4  that includes the following features:
 
-  ## Dynamic search functionality across all columns headers(page wise).
-  ##  Dynamic pagination functionality based on items to be shown per page.
-  ## Column based  ascending/descending sorting functionality acoss all columns.
+  ```
+  Dynamic search functionality across all columns headers(page wise).
+    Dynamic pagination functionality based on items to be shown per page.
+   Column based  ascending/descending sorting functionality acoss all columns.
+  ```
 
 
 
