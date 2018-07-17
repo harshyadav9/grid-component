@@ -50,11 +50,13 @@
   2) totalData:This property tell the total data to be shown in the grid and will be passed from parent component.it expects a array of objects(JSON).
 
 
+## Style Directive:
+    styleDirective:It is a property that can be added as an attribute that can be applied to rows and headers to give them color.  
+    Usage:
+       <tr  styleDirective ="grey" *ngFor="let pageRow of totalGridDataVal;let i  = index;">(Example)
+       
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-##Style Directive:
-    styleDirective:It is a property that can be added as an attribute that can be applied to rows and headers to give them color.  
-    Usage:
-       <tr  styleDirective ="grey" *ngFor="let pageRow of totalGridDataVal;let i  = index;">(Example)
+
